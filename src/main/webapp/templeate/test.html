@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Spring MVC + Thymeleaf Example</title>
+    <script type="text/javascript" src="/layui/layui.js" th:src="@{/layui/layui.js}"></script>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td>id</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>部门</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="emp,st:${list}">
+            <td th:text="${st.count}"></td>
+            <td th:text="${emp.ename}"></td>
+            <td th:text="${emp.sex}"></td>
+            <td th:text="${emp.did}"></td>
+            <td><a th:href="@{/del.do(eid=${emp.eid})}">删除</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
